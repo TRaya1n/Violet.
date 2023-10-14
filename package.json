@@ -1,0 +1,26 @@
+{
+  "name": "Mellow-bot",
+  "version": "2.3.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.0.6",
+    "axios": "^1.5.1",
+    "better-sqlite3": "^9.0.0",
+    "chalk": "^4.1.2",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^7.5.3",
+    "node-fetch": "^3.2.6",
+    "parse-ms": "^2.1.0",
+    "quick.db": "^9.1.7"
+  }
+}
