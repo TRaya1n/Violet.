@@ -9,6 +9,7 @@
 - _Fix the database_
 - _Add a web dashboard_
 - _Fix error handling_
+- *Add suggestion, log, member & server commands (Removed all the old commands)*
 - _...more - i just can't remember em all._
 
 # Changelogs

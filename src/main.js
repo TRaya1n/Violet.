@@ -1,5 +1,10 @@
-const { Client, GatewayIntentBits, Partials } = require("discord.js");
-const { ReadEventFiles } = require("./utils/utility");
+const {
+  Client,
+  GatewayIntentBits,
+  Partials,
+  Collection,
+} = require("discord.js");
+const { ReadEventFiles, ReadCommandFiles } = require("./utils/utility");
 const { configDotenv } = require("dotenv");
 configDotenv();
 
@@ -8,6 +13,8 @@ const client = new Client({
   partials: [Partials.GuildMember, Partials.Message, Partials.Channel],
 });
 
+client.commands = new Collection();
 
 ReadEventFiles(client);
+ReadCommandFiles(client);
 client.login();
