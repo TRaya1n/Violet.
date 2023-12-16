@@ -42,7 +42,7 @@ module.exports = {
     };
     console.log(chalk.red(error));
     // Webhook Client
-    const webhook = new WebhookClient({ url: process.env.WEBHOOKS_ERROR_LOGS });
+    //const webhook = new WebhookClient({ url: process.env.WEBHOOKS_ERROR_LOGS });
     const cxx = new EmbedBuilder()
       .setDescription(`${error}`)
       .setFooter({
@@ -51,7 +51,7 @@ module.exports = {
         } > ${dir}`,
       })
       .setColor("Blue");
-    webhook.send({ embeds: [cxx] });
+   // webhook.send({ embeds: [cxx] });
 
     const embed = new EmbedBuilder()
       .setDescription("An Error occurred while executing this command")

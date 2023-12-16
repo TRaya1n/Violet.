@@ -1,13 +1,12 @@
 {
-  "name": "Mellow-bot",
-  "version": "2.3.5",
-  "description": "",
+  "name": "violet",
+  "version": "3.0.1",
+  "description": "Violet is a multiperpose discord bot!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Rayaan (TRaya1n)",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.6",
