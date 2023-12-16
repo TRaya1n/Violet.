@@ -1,14 +1,13 @@
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
-const { ReadEventFiles } = require('./utils/utility');
+const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const { ReadEventFiles } = require("./utils/utility");
+const { configDotenv } = require("dotenv");
+configDotenv();
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers
-    ],
-    partials: [Partials.GuildMember, Partials.Message, Partials.Channel]
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+  partials: [Partials.GuildMember, Partials.Message, Partials.Channel],
 });
 
-// Start the bot
-//ReadEventFiles();
+
+ReadEventFiles(client);
 client.login();

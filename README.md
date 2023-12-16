@@ -2,30 +2,22 @@
 
 - **This project is being re-worked on, Last updated 16 Dec**
 
-
 # To-do's:
-- *Remove the color db/system*
-- *Fix command bugs*
-- *Fix the database*
-- *Add a web dashboard*
-- *Fix error handling*
-- *...more - i just can't remember em all.* 
 
+- _Remove the color db/system_
+- _Fix command bugs_
+- _Fix the database_
+- _Add a web dashboard_
+- _Fix error handling_
+- _...more - i just can't remember em all._
 
 # Changelogs
+
 ```
 Event Changes:
-- event.config*
-+ event*
+- Removed most of the events
 
 File Changes:
-- src/utils/helpers.js
-+ src/utils/utility.js
-- src/Violet/*
++/-/c 56 Files
 
-Functions: 
-+ ReadEventFiles
-
-Bot:
-+ Fixed webhook issues (removed, will be added later.)
 ```

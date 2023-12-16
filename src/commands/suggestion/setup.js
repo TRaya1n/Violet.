@@ -30,7 +30,7 @@ module.exports = async (client, interaction) => {
         // Config the embed
         const embed = new EmbedBuilder()
           .setDescription(
-            `Successfully set <#${channel.id}> as suggestion channel.`
+            `Successfully set <#${channel.id}> as suggestion channel.`,
           )
           .setTimestamp()
           .setColor(color);
@@ -48,7 +48,7 @@ module.exports = async (client, interaction) => {
         // Config the embed
         const embed = new EmbedBuilder()
           .setDescription(
-            `Successfully set <#${channel.id}> as suggestion channel.`
+            `Successfully set <#${channel.id}> as suggestion channel.`,
           )
           .setTimestamp()
           .setColor(color);

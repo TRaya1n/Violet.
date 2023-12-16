@@ -16,43 +16,43 @@ module.exports = async (client, interaction) => {
         new ButtonBuilder()
           .setCustomId("commands-bot")
           .setLabel("Bot")
-          .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary),
       )
       .addComponents(
         new ButtonBuilder()
           .setCustomId("commands-log")
           .setLabel("Log")
-          .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary),
       )
       .addComponents(
         new ButtonBuilder()
           .setCustomId("commands-members")
           .setLabel("Members")
-          .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary),
       )
       .addComponents(
         new ButtonBuilder()
           .setCustomId("commands-server")
           .setLabel("Server")
-          .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary),
       )
       .addComponents(
         new ButtonBuilder()
           .setCustomId("commands-suggestion")
           .setLabel("Suggestion")
-          .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary),
       );
 
     const row2 = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("commands-mod")
         .setLabel("Moderation")
-        .setStyle(ButtonStyle.Secondary)
+        .setStyle(ButtonStyle.Secondary),
     );
 
     const embed = new EmbedBuilder()
       .setDescription(
-        `**<:mailbox:1152283154472767538> Want help? Use the butttons to see all the commands, description & usage.** *(Button Label = Command Category)*`
+        `**<:mailbox:1152283154472767538> Want help? Use the butttons to see all the commands, description & usage.** *(Button Label = Command Category)*`,
       )
       .setColor(color);
 

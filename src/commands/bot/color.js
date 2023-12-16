@@ -18,25 +18,25 @@ module.exports = async (client, interaction) => {
       new ButtonBuilder()
         .setCustomId("p")
         .setStyle(ButtonStyle.Primary)
-        .setLabel("blue")
+        .setLabel("blue"),
     )
     .addComponents(
       new ButtonBuilder()
         .setCustomId("se")
         .setStyle(ButtonStyle.Secondary)
-        .setLabel("Gray")
+        .setLabel("Gray"),
     )
     .addComponents(
       new ButtonBuilder()
         .setCustomId("su")
         .setStyle(ButtonStyle.Success)
-        .setLabel("Green")
+        .setLabel("Green"),
     )
     .addComponents(
       new ButtonBuilder()
         .setCustomId("d")
         .setStyle(ButtonStyle.Danger)
-        .setLabel("Red")
+        .setLabel("Red"),
     );
   const embed = new EmbedBuilder()
     .setAuthor({ name: user.username, iconURL: user.displayAvatarURL() })

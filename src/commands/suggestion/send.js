@@ -22,7 +22,7 @@ module.exports = async (client, interaction) => {
 
     if (data || data.suggestion) {
       const channel = guild.channels.cache.get(
-        data.suggestion.channel ? data.suggestion.channel : "false"
+        data.suggestion.channel ? data.suggestion.channel : "false",
       );
       if (channel) {
         // Suggestion Buttons (accept, deny)
@@ -31,13 +31,13 @@ module.exports = async (client, interaction) => {
             new ButtonBuilder()
               .setCustomId("sg_ap")
               .setLabel("Accept")
-              .setStyle(ButtonStyle.Primary)
+              .setStyle(ButtonStyle.Primary),
           )
           .addComponents(
             new ButtonBuilder()
               .setCustomId("sg_dn")
               .setLabel("Deny")
-              .setStyle(ButtonStyle.Danger)
+              .setStyle(ButtonStyle.Danger),
           );
 
         // Suggestion embed (this is the embed that will be sent to [channel])
@@ -55,11 +55,11 @@ module.exports = async (client, interaction) => {
             {
               name: "Status",
               value: `<:utils_refresh:1157295573255331942> Pending`,
-            }
+            },
           )
           .setFooter({ text: `${member.id}` })
           .setThumbnail(
-            "https://media.discordapp.net/attachments/1159394211636981822/1159394386489114734/idea.png"
+            "https://media.discordapp.net/attachments/1159394211636981822/1159394386489114734/idea.png",
           )
           .setColor("FF7F50");
 
@@ -74,14 +74,14 @@ module.exports = async (client, interaction) => {
             iconURL: member.displayAvatarURL(),
           })
           .setDescription(
-            `<:actions_Ltick:1157298411163357184> | **Sent you're suggestion in ${channel}**`
+            `<:actions_Ltick:1157298411163357184> | **Sent you're suggestion in ${channel}**`,
           )
           .setColor(color);
         interaction.editReply({ embeds: [embed] });
       } else {
         const channelError = new EmbedBuilder()
           .setDescription(
-            `**Error** - I coudn't find the suggestion channel in this server, you can set one up by doin **/suggestion setup**`
+            `**Error** - I coudn't find the suggestion channel in this server, you can set one up by doin **/suggestion setup**`,
           )
           .setColor(color);
         interaction.editReply({ embeds: [channelError] });
@@ -89,7 +89,7 @@ module.exports = async (client, interaction) => {
     } else {
       const noData = new EmbedBuilder()
         .setDescription(
-          `**Error** - There's no suggestion channel setup in this server, you can set one up by doin **/suggestion setup**`
+          `**Error** - There's no suggestion channel setup in this server, you can set one up by doin **/suggestion setup**`,
         )
         .setColor(color);
       interaction.editReply({ embeds: [noData] });

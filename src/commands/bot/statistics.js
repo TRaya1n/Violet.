@@ -49,7 +49,7 @@ module.exports = async (client, interaction) => {
       {
         name: `Memory`,
         value: `- **${system.tmem}**`,
-      }
+      },
     )
     .setColor(color);
 

@@ -17,12 +17,12 @@ module.exports = async (client, interaction) => {
     new ButtonBuilder()
       .setStyle(ButtonStyle.Link)
       .setURL("https://discord.gg/uQaUj9rp")
-      .setLabel("Support")
+      .setLabel("Support"),
   );
 
   const embed = new EmbedBuilder()
     .setDescription(
-      "Need help with the bot? join here: ||https://discord.gg/uQaUj9rp||"
+      "Need help with the bot? join here: ||https://discord.gg/uQaUj9rp||",
     )
     .setColor(color);
 

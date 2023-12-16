@@ -16,5 +16,5 @@ module.exports = mongoose.model(
       channel: { type: String, default: null, allowNull: true },
       _ID: { type: String, defualt: null, allowNull: true },
     },
-  })
+  }),
 );

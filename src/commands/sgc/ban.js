@@ -9,12 +9,12 @@ module.exports = async (client, interaction) => {
 
   if (
     !interaction.member.permissions.has(
-      PermissionFlagsBits.BanMembers | PermissionFlagsBits.KickMembers
+      PermissionFlagsBits.BanMembers | PermissionFlagsBits.KickMembers,
     )
   ) {
     const _permissions = new EmbedBuilder()
       .setDescription(
-        "<:actions_warning:1157299441963909150> | You don't have enough permissions to use this command."
+        "<:actions_warning:1157299441963909150> | You don't have enough permissions to use this command.",
       )
       .setColor(color);
 
@@ -24,7 +24,7 @@ module.exports = async (client, interaction) => {
   if (member.banable) {
     const c_permissions = new EmbedBuilder()
       .setDescription(
-        "<:actions_warning:1157299441963909150> | I can't ban this member."
+        "<:actions_warning:1157299441963909150> | I can't ban this member.",
       )
       .setColor(color);
 
@@ -34,7 +34,7 @@ module.exports = async (client, interaction) => {
   if (!member.manageable) {
     const m_permissions = new EmbedBuilder()
       .setDescription(
-        "<:actions_Xtick:1157298381950025789> | This member is not manage able by me."
+        "<:actions_Xtick:1157298381950025789> | This member is not manage able by me.",
       )
       .setColor(color);
 
@@ -45,7 +45,7 @@ module.exports = async (client, interaction) => {
     let dmed = true;
     const dm = new EmbedBuilder()
       .setDescription(
-        `<:actions_warning:1157299441963909150> | You have been banned from ${guild.name} by ${interaction.member}`
+        `<:actions_warning:1157299441963909150> | You have been banned from ${guild.name} by ${interaction.member}`,
       )
       .setColor(color);
     member.send({ embeds: [dm] }).catch(() => {
@@ -54,7 +54,7 @@ module.exports = async (client, interaction) => {
 
     const embed = new EmbedBuilder()
       .setDescription(
-        `<:actions_Ltick:1157298411163357184> | ${member} has been banned - ${reason}`
+        `<:actions_Ltick:1157298411163357184> | ${member} has been banned - ${reason}`,
       )
       .setColor(color);
 

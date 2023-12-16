@@ -7,14 +7,14 @@ module.exports = {
     mongoose.connection.on("connecting", () => {
       console.log(
         chalk.red("<system:mongo>"),
-        chalk.blue("Connecting to database")
+        chalk.blue("Connecting to database"),
       );
     });
 
     mongoose.connection.on("connected", () => {
       console.log(
         chalk.red("<system:mongo>"),
-        chalk.blue("Connected to database")
+        chalk.blue("Connected to database"),
       );
     });
   },

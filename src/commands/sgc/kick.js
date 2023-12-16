@@ -10,7 +10,7 @@ module.exports = async (client, interaction) => {
   if (!interaction.member.permissions.has(PermissionFlagsBits.KickMembers)) {
     const _permissions = new EmbedBuilder()
       .setDescription(
-        `<:actions_Xtick:1157298381950025789> | You don't have enough permissions to use this command.`
+        `<:actions_Xtick:1157298381950025789> | You don't have enough permissions to use this command.`,
       )
       .setColor(color);
 
@@ -20,7 +20,7 @@ module.exports = async (client, interaction) => {
   if (!member.kickable) {
     const n_permissions = new EmbedBuilder()
       .setDescription(
-        `<:actions_Xtick:1157298381950025789> | I can't kick this member.`
+        `<:actions_Xtick:1157298381950025789> | I can't kick this member.`,
       )
       .setColor(color);
 
@@ -32,7 +32,7 @@ module.exports = async (client, interaction) => {
     let error = false;
     const dm = new EmbedBuilder()
       .setDescription(
-        `<:actions_warning:1157299441963909150> | You have been kicked from ${guild.name} by ${interaction.member} (${reason})`
+        `<:actions_warning:1157299441963909150> | You have been kicked from ${guild.name} by ${interaction.member} (${reason})`,
       )
       .setColor(color);
     member.send({ embeds: [dm] }).catch(() => {
@@ -41,7 +41,7 @@ module.exports = async (client, interaction) => {
 
     const embed = new EmbedBuilder()
       .setDescription(
-        `<:actions_Ltick:1157298411163357184> | Kicked ${member} - ${reason}`
+        `<:actions_Ltick:1157298411163357184> | Kicked ${member} - ${reason}`,
       )
       .setColor("Green");
 

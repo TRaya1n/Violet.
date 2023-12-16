@@ -44,7 +44,7 @@ module.exports = async (client, interaction) => {
             ? customSubstring(roles, 1003)
             : "No Roles"
         }`,
-      }
+      },
     );
 
     interaction.editReply({ embeds: [embed] });

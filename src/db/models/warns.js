@@ -9,5 +9,5 @@ module.exports = mongoose.model(
     reason: { type: String },
     executor: { type: String },
     time: { type: String },
-  })
+  }),
 );

@@ -11,5 +11,5 @@ module.exports = new mongoose.model(
     config: {
       color: { type: String, defualt: null, allowNull: true },
     },
-  })
+  }),
 );

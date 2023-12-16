@@ -8,7 +8,7 @@ module.exports = async (client) => {
   try {
     console.log(
       chalk.red("<system>"),
-      chalk.blue("Started reading command files...")
+      chalk.blue("Started reading command files..."),
     );
     const folders = fs.readdirSync(path.join("src", "Interactions"));
     for (const folder of folders) {

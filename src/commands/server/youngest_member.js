@@ -33,7 +33,7 @@ module.exports = async (client, interaction) => {
         {
           name: "Joined at",
           value: `- **${moment(userMember.joinedTimestamp).format("LLL")}**`,
-        }
+        },
       )
       .setColor(color);
 
