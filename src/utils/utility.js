@@ -32,7 +32,7 @@ function ReadCommandFiles(client = Client) {
     commandsArray.push(object.data);
   }
 
-  DeployApplicationCommands(commandsArray).then((e) => console.log(e));
+  DeployApplicationCommands(commandsArray);
 }
 
 async function DeployApplicationCommands(commands) {
