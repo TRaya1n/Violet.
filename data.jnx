@@ -1,0 +1,26 @@
+Violet = {
+    name: "Violet";
+    description?: "Violet is a multiperpose discord bot!";
+    author[s]?: [
+        {
+            name: "Rayaan";
+            github?: "";
+            discord_username?: "";
+        }
+        ...
+    ];
+    links[?]: [
+        {
+            name: "Discord support server"
+            url: ""
+        }
+        {
+            name: "Invite"
+            url: ""
+        }
+    ];
+}
+
+Export {
+    Violet
+}
