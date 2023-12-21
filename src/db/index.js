@@ -12,7 +12,7 @@ module.exports = {
     });
 
     mongoose.connection.on("connected", () => {
-      console.log(`[DATABASE] Connected`)
+      console.log(`[DATABASE] Connected`);
     });
   },
 

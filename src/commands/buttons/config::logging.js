@@ -1,12 +1,34 @@
-const { Client, ButtonInteraction } = require('discord.js');
+const {
+  Client,
+  ButtonInteraction,
+  EmbedBuilder,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+} = require("discord.js");
 
 /**
- * @param {Client} client 
- * @param {ButtonInteraction} interaction 
+ * @param {Client} client
+ * @param {ButtonInteraction} interaction
  */
 module.exports = async (client, interaction) => {
-    interaction.message.edit('Hello!')
+  await interaction.deferReply();
 
-    const m = await interaction.reply('...');
-    m.delete();
-}
+  const embed = new EmbedBuilder()
+    .setAuthor({
+      name: interaction.user.username,
+      iconURL: interaction.user.displayAvatarURL(),
+    })
+    .setDescription(`Select the type of log you want to set.`)
+    .setColor("Orange")
+    .setTimestamp();
+
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId("config::logging::channel")
+      .setLabel("Channel")
+      .setStyle(ButtonStyle.Primary),
+  );
+
+  interaction.editReply({ embeds: [embed], components: [row] });
+};

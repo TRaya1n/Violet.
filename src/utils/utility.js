@@ -79,7 +79,7 @@ function ExecuteCommandInteraction(client, interaction) {
 
 class Logger {
   log(...str) {
-    console.warn(chalk.red(`[LOG] ::`), chalk.green(str))
+    console.warn(chalk.red(`[LOG] ::`), chalk.green(str));
   }
 }
 
@@ -88,5 +88,5 @@ module.exports = {
   ReadCommandFiles,
   DeployApplicationCommands,
   ExecuteCommandInteraction,
-  Logger
+  Logger,
 };
