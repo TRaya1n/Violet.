@@ -51,12 +51,30 @@ async function DeployApplicationCommands(commands) {
   return data;
 }
 
+/**
+ * @param {Client} client
+ * @param {ChatInputCommandInteraction} interaction
+ */
 function ExecuteCommandInteraction(client, interaction) {
-  return require(
-    `../commands/${
-      interaction.commandName
-    }/${interaction.options.getSubcommand()}.js`,
-  )(client, interaction);
+  console.log(interaction.options, interaction.options._subcommand);
+  if (interaction.options.getSubcommandGroup()) {
+    return require(
+      `../commands/${
+        interaction.commandName
+      }/${interaction.options.getSubcommandGroup()}/${interaction.options.getSubcommand()}.js`,
+    )(client, interaction);
+  } else if (!interaction.options._subcommand) {
+    return require(`../commands/${interaction.commandName}.js`)(
+      client,
+      interaction,
+    );
+  } else {
+    return require(
+      `../commands/${
+        interaction.commandName
+      }/${interaction.options.getSubcommand()}.js`,
+    )(client, interaction);
+  }
 }
 
 module.exports = {
