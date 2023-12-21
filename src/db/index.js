@@ -20,8 +20,6 @@ module.exports = {
   },
 
   models: {
-    settings: require("./models/settings.js"),
-    warn: require("./models/warns.js"),
-    users: require("./models/users.js"),
+    log: require("./models/log.js"),
   },
 };

@@ -1,6 +1,6 @@
 {
   "name": "violet",
-  "version": "3.0.1",
+  "version": "3.1.6",
   "description": "Violet is a multiperpose discord bot!",
   "main": "index.js",
   "scripts": {

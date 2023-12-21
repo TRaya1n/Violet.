@@ -8,7 +8,10 @@ module.exports = {
     .setDMPermission(false)
     .addSubcommand((option) => {
       option.setName("ping").setDescription("Returns client ping!");
-
+      return option;
+    })
+    .addSubcommand((option) => {
+      option.setName("stats").setDescription("View stats on bot!");
       return option;
     }),
   execute: (client, interaction) => {
