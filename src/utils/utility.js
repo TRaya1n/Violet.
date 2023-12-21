@@ -56,7 +56,6 @@ async function DeployApplicationCommands(commands) {
  * @param {ChatInputCommandInteraction} interaction
  */
 function ExecuteCommandInteraction(client, interaction) {
-  console.log(interaction.options, interaction.options._subcommand);
   if (interaction.options.getSubcommandGroup()) {
     return require(
       `../commands/${

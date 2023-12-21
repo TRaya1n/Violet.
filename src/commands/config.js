@@ -10,4 +10,5 @@ const {
  * @param {ChatInputCommandInteraction} interaction
  */
 module.exports = async (client, interaction) => {
+  interaction.reply('Config...')
 };
