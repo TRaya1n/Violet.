@@ -12,10 +12,7 @@ module.exports = {
     });
 
     mongoose.connection.on("connected", () => {
-      console.log(
-        chalk.red("<system:mongo>"),
-        chalk.blue("Connected to database"),
-      );
+      console.log(`[DATABASE] Connected`)
     });
   },
 

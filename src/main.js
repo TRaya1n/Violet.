@@ -4,7 +4,7 @@ const {
   Partials,
   Collection,
 } = require("discord.js");
-const { ReadEventFiles, ReadCommandFiles } = require("./utils/utility");
+const { ReadEventFiles, ReadCommandFiles, Logger } = require("./utils/utility");
 const { connect } = require("./db/index");
 const { configDotenv } = require("dotenv");
 configDotenv();
@@ -15,6 +15,9 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+
+const logger = new Logger();
+console.log = logger.log;
 
 ReadEventFiles(client);
 connect();

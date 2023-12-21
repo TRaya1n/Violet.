@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const {
   Client,
   REST,
@@ -76,9 +77,16 @@ function ExecuteCommandInteraction(client, interaction) {
   }
 }
 
+class Logger {
+  log(...str) {
+    console.warn(chalk.red(`[LOG] ::`), chalk.green(str))
+  }
+}
+
 module.exports = {
   ReadEventFiles,
   ReadCommandFiles,
   DeployApplicationCommands,
   ExecuteCommandInteraction,
+  Logger
 };
