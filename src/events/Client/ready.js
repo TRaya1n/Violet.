@@ -4,7 +4,7 @@ const { ActivityType } = require("discord.js");
 module.exports = {
   name: "ready",
   execute: async (client) => {
-    console.log(`Logged in as ${client.user.username}`);
+    client.logger.info(`Logged in as ${client.user.username}`);
 
     setInterval((_) => {
       const tt = {

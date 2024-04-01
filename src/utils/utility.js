@@ -16,9 +16,7 @@ function ReadEventFiles(client = Client) {
       if (event.name && event.execute) {
         client.on(event.name, (...args) => event.execute(...args));
       } else {
-        console.warn(
-          `[${folder}/${file}]: Missing event#name || event#execute`,
-        );
+        Logger.prototype.warn(`[${folder}/${file}]: Missing #name || #execute`);
       }
     }
   }
@@ -39,7 +37,9 @@ function ReadCommandFiles(client = Client) {
 async function DeployApplicationCommands(commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
 
-  console.log(`[REST] Initialized REST - Deploying application commands (/)`);
+  Logger.prototype.info(
+    `Initialized REST - Deploying application commands (/)`,
+  );
 
   const data = await rest
     .put(Routes.applicationCommands(process.env.CLIENT_ID), {
@@ -47,7 +47,7 @@ async function DeployApplicationCommands(commands) {
     })
     .catch(console.error);
 
-  console.log(`[REST] Deployed application commands (/)`);
+  Logger.prototype.info(`Deployed (${data.length}) application commands (/)`);
 
   return data;
 }
@@ -56,30 +56,35 @@ async function DeployApplicationCommands(commands) {
  * @param {Client} client
  * @param {ChatInputCommandInteraction} interaction
  */
-function ExecuteCommandInteraction(client, interaction) {
+function ExecuteCommandInteraction(interaction) {
   if (interaction.options.getSubcommandGroup()) {
     return require(
-      `../commands/${
+      `../interactions/ChatInput/${
         interaction.commandName
       }/${interaction.options.getSubcommandGroup()}/${interaction.options.getSubcommand()}.js`,
-    )(client, interaction);
+    )(interaction);
   } else if (!interaction.options._subcommand) {
-    return require(`../commands/${interaction.commandName}.js`)(
-      client,
-      interaction,
-    );
+    return require(`../interactions/ChatInput/${interaction.commandName}.js`)(interaction);
   } else {
     return require(
-      `../commands/${
+      `../interactions/ChatInput/${
         interaction.commandName
       }/${interaction.options.getSubcommand()}.js`,
-    )(client, interaction);
+    )(interaction);
   }
 }
 
 class Logger {
-  log(...str) {
-    console.warn(chalk.red(`[LOG] ::`), chalk.green(str));
+  info(...str) {
+    console.info(chalk.red(`[INFO] -`), chalk.green(str));
+  }
+
+  warn(...str) {
+    console.warn(chalk.red(`[WARN] -`), chalk.yellow(str));
+  }
+
+  error(error) {
+    console.error(chalk.redBright(`[ERROR] -`), error);
   }
 }
 

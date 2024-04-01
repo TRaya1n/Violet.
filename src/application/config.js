@@ -1,16 +1,16 @@
-const {
-  SlashCommandBuilder,
-  PermissionsBitField: { Flags },
-} = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 const { ExecuteCommandInteraction } = require("../utils/utility");
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("config")
-    .setDescription("Config settings for this server!")
-    .setDMPermission(false)
-    .setDefaultMemberPermissions(Flags.ManageGuild),
-  execute: (client, interaction) => {
-    ExecuteCommandInteraction(client, interaction);
+    .setDescription("Config the server settings!")
+    .addSubcommand((input) => {
+      return input
+        .setName("log")
+        .setDescription("Configure the logging module.");
+    }),
+  execute: (interaction) => {
+    ExecuteCommandInteraction(interaction);
   },
 };

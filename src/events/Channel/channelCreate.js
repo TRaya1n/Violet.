@@ -1,5 +1,5 @@
 const { BaseChannel, EmbedBuilder } = require("discord.js");
-const { models } = require('../../db/index');
+const { models } = require("../../db/index");
 
 module.exports = {
   name: "channelCreate",
@@ -23,10 +23,10 @@ module.exports = {
       .setTimestamp()
       .setColor("Green");
 
-      const data = await models.log.findOne({ Id: guild.id });
-      if (data.channel) {
-        const logchannel = guild.channels.cache.get(data.channel);
-        logchannel.send({ embeds: [embed] });
-      }
+    const data = await models.log.findOne({ Id: guild.id });
+    if (data.channel) {
+      const logchannel = guild.channels.cache.get(data.channel);
+      logchannel.send({ embeds: [embed] });
+    }
   },
 };

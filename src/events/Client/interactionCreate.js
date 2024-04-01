@@ -7,28 +7,21 @@ module.exports = {
    */
   execute: async (interaction) => {
     const { client } = interaction;
-    if (!interaction.guild.id === "1169388501633073162") {
-      interaction.reply(
-        "Hello, this command is only avaible in the dev server.",
-      );
-    }
 
     if (interaction.isChatInputCommand()) {
       const command = client.commands.get(interaction.commandName);
-      if (!command) {
-        console.warn("[COMMAND] Unknown command used", interaction.commandName);
-        return;
-      }
 
-      command.execute(client, interaction);
-    } else if (interaction.isButton()) {
+      if (!command) return;
+
+      command.execute(interaction);
+    } else if (interaction.isStringSelectMenu()) {
+      console.log(interaction.customId, interaction.values);
       try {
-        require(`../../commands/buttons/${interaction.customId.toLowerCase()}`)(
-          client,
-          interaction,
-        );
+        const dirname = interaction.customId.toLowerCase();
+        const filename = interaction.values.at(0).toLowerCase();
+        require(`../../interactions/SelectMenu/${dirname}/${filename}.js`)(interaction);
       } catch (error) {
-        console.log(error);
+        client.logger.error(error);
       }
     }
   },

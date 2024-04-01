@@ -9,7 +9,7 @@ module.exports = async (client, interaction) => {
     };
 
     const embed = new EmbedBuilder()
-      .setDescription(`**Ping:** ${ping()} *(${ping("s")}s)*`)
+      .setDescription(`**Ping:** ${ping()}ms *(${ping("s")}s)*`)
       .setColor("Navy");
 
     interaction.reply({

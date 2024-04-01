@@ -19,10 +19,10 @@ module.exports = {
       .setTimestamp()
       .setColor("Red");
 
-      const data = await log.findOne({ Id: guild.id });
-      if (data.channel) {
-        const logchannel = guild.channels.cache.get(data.channel);
-        logchannel.send({ embeds: [embed] });
-      }
+    const data = await log.findOne({ Id: guild.id });
+    if (data.channel) {
+      const logchannel = guild.channels.cache.get(data.channel);
+      logchannel.send({ embeds: [embed] });
+    }
   },
 };

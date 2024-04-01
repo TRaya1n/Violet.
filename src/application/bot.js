@@ -14,7 +14,7 @@ module.exports = {
       option.setName("stats").setDescription("View stats on bot!");
       return option;
     }),
-  execute: (client, interaction) => {
-    ExecuteCommandInteraction(client, interaction);
+  execute: (interaction) => {
+    ExecuteCommandInteraction(interaction);
   },
 };
