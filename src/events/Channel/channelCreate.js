@@ -18,12 +18,12 @@ module.exports = {
         iconURL: guild.iconURL(),
       })
       .setDescription(
-        `**>>>** Channel Created **<<<**\n **>** **Name:** ${channel.name}\n **>** **Id:** ${channel.id}`,
+        `**>>>** Channel Created **<<<**\n **>** **Name:** ${channel.name}\n **>** **guildId:** ${channel.id}`,
       )
       .setTimestamp()
       .setColor("Green");
 
-    const data = await models.log.findOne({ Id: guild.id });
+    const data = await models.log.findOne({ guildId: guild.id });
     if (data.channel) {
       const logchannel = guild.channels.cache.get(data.channel);
       logchannel.send({ embeds: [embed] });

@@ -1,9 +1,7 @@
-const { BaseInteraction } = require("discord.js");
-
 module.exports = {
   name: "interactionCreate",
   /**
-   * @param {BaseInteraction} interaction
+   * @param {import("discord.js").Interaction} interaction
    */
   execute: async (interaction) => {
     const { client } = interaction;
@@ -15,13 +13,42 @@ module.exports = {
 
       command.execute(interaction);
     } else if (interaction.isStringSelectMenu()) {
-      console.log(interaction.customId, interaction.values);
       try {
-        const dirname = interaction.customId.toLowerCase();
-        const filename = interaction.values.at(0).toLowerCase();
-        require(`../../interactions/SelectMenu/${dirname}/${filename}.js`)(interaction);
+        if (interaction.values.length < 2) {
+          const dirname = interaction.customId.toLowerCase();
+          const filename = interaction.values.at(0).toLowerCase();
+          require(
+            `../../interactions/StringSelectMenu/${dirname}/${filename}.js`,
+          )(interaction);
+        }
       } catch (error) {
         client.logger.error(error);
+      }
+    } else if (interaction.isChannelSelectMenu()) {
+      try {
+        if (interaction.values.length < 2) {
+          const dirname = interaction.customId.toLowerCase();
+          const filename = interaction.values.at(0).toLowerCase();
+          if (!isNaN(filename)) {
+            require(`../../interactions/ChannelSelectMenu/${dirname}`)(
+              interaction,
+            );
+          } else {
+            require(
+              `../../interactions/ChannelSelectMenu/${dirname}/${filename}`,
+            )(interaction);
+          }
+        }
+      } catch (error) {
+        client.logger.error(error);
+      }
+    } else if (interaction.isButton()) {
+      try {
+        const dirname = interaction.customId.split('-').at(0).toLowerCase();
+        const filename = interaction.customId.split('-').at(1).toLowerCase();
+        require(`../../interactions/Buttons/${dirname}/${filename}`)(interaction);
+      } catch (error) {
+        client.logger.error(error)
       }
     }
   },

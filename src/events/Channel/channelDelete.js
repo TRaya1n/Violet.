@@ -14,12 +14,12 @@ module.exports = {
     const embed = new EmbedBuilder()
       .setAuthor({ name: guild.name, iconURL: guild.iconURL() })
       .setDescription(
-        `**>>>** Channel Deleted **<<<**\n **>** **Name:** ${channel.name}\n **>** **Id:** ${channel.id}`,
+        `**>>>** Channel Deleted **<<<**\n **>** **Name:** ${channel.name}\n **>** **guildId:** ${channel.id}`,
       )
       .setTimestamp()
       .setColor("Red");
 
-    const data = await log.findOne({ Id: guild.id });
+    const data = await log.findOne({ guildId: guild.id });
     if (data.channel) {
       const logchannel = guild.channels.cache.get(data.channel);
       logchannel.send({ embeds: [embed] });

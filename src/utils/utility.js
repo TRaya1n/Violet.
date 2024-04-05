@@ -64,7 +64,9 @@ function ExecuteCommandInteraction(interaction) {
       }/${interaction.options.getSubcommandGroup()}/${interaction.options.getSubcommand()}.js`,
     )(interaction);
   } else if (!interaction.options._subcommand) {
-    return require(`../interactions/ChatInput/${interaction.commandName}.js`)(interaction);
+    return require(`../interactions/ChatInput/${interaction.commandName}.js`)(
+      interaction,
+    );
   } else {
     return require(
       `../interactions/ChatInput/${
